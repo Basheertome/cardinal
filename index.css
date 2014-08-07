@@ -1,0 +1,40 @@
+* { margin:0; padding:0; }
+h1,h2,h3 { font-size: 100%; font-weight: normal; }
+ol,ul { list-style: none; }
+img {border: 0;}
+html {min-height: 100%;}
+
+.watches {
+	position: absolute;
+	bottom: 50%;
+	right: 50%;
+	margin-right: -251px;
+	margin-bottom: -340px;
+	width: 502px;
+	height: 680px;
+	cursor: pointer;
+}
+
+.watches img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+@media (max-width: 502px) {
+	.watches {
+		right: 0;
+		margin-right: 0;
+		width: 100%;
+	}
+}
+
+@media (max-height: 680px) {
+	.watches {
+		bottom: 0;
+		margin-bottom: 0;
+		height: 100%;
+	}
+}
