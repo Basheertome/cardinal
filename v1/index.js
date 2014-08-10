@@ -4,8 +4,4 @@ $(document).ready(function(){
 		$('html').addClass('touch');
 	}
 
-	$('.watches').click(function(event) {
-		$('.watches img:visible:last').fadeOut();
-	});
-
 });
