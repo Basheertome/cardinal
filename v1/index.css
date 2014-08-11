@@ -4,15 +4,21 @@ ol,ul { list-style: none; }
 img {border: 0;}
 html {min-height: 100%;}
 
+html {
+	background: #000;
+}
+
 body {
 	opacity: 0;
 	background: #000;
 }
 
 .watch {
+	opacity: 1;
 	position: absolute;
 	width: 100%;
 	height: 100%;
+	-webkit-transition: .15s linear opacity;
 }
 
 .strap {
@@ -49,7 +55,7 @@ body {
 	fill: #262626;
 }
 
-.numbers, .compass {
+.numbers, .compass, .rotate {
 	fill: #fff;
 	font-size: 16px;
 	line-height: 16px;
@@ -71,4 +77,24 @@ body {
 
 .hour {
 	fill: #fff;
+}
+
+.rotate {
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	color: #444;
+	text-align: center;
+}
+
+@media (max-height: 480px) and (min-width: 480px) and (max-width: 600px) { 
+	.watch {
+		opacity: 0;
+	}
+
+	.rotate {
+		opacity: 1;
+	}
 }
