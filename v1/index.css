@@ -5,11 +5,70 @@ img {border: 0;}
 html {min-height: 100%;}
 
 body {
-	background: #fff;
+	opacity: 0;
+	background: #000;
 }
 
-#svg {
+.watch {
 	position: absolute;
 	width: 100%;
 	height: 100%;
+}
+
+.strap {
+	fill: #000;
+	stroke-width: 2;
+}
+
+.button {
+	fill: #0f0f0f;
+	stroke: #404040;
+	stroke-width: 2;
+	cursor: pointer;
+}
+.button:hover {
+	fill: #050505;
+	stroke: #212121;
+}
+.button:active {
+	fill: #2b2b2b;
+	stroke: #5c5c5c;
+}
+
+.dial {
+	fill: #000;
+	stroke: #404040;
+	stroke-width: 2;
+}
+
+.smallTicks {
+	fill: #1a1a1a;
+}
+
+.largeTicks {
+	fill: #262626;
+}
+
+.numbers, .compass {
+	fill: #fff;
+	font-size: 16px;
+	line-height: 16px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 400;
+	text-anchor: middle;
+	pointer-events: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+.numbers text, .compass text{
+	opacity: 0;
+}
+
+.minute {
+	fill: #fff;
+}
+
+.hour {
+	fill: #fff;
 }
