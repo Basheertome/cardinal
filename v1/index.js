@@ -49,6 +49,7 @@ $(document).ready(function(){
 		.attr({"class": "hour"});
 
 	watch.tbutton.click(function() {
+		compass = 0;
 		showTime(watch, 500);
 		$('.compass text').animate({"opacity": "0"}, 250);
 		$('.numbers text').each(function(i) {
@@ -56,6 +57,7 @@ $(document).ready(function(){
 		});
 	});
 	watch.mbutton.click(function() {
+		compass = 1;
 		setHands(watch, 220, 220, 500);
 		$('.numbers text').animate({"opacity": "0"}, 250);
 		$('.compass text').each(function(i) {
@@ -63,9 +65,16 @@ $(document).ready(function(){
 		});
 	});
 	watch.bbutton.click(function() {
+		compass = 0;
 		setHands(watch, 0, 0, 500);
 		$('.numbers text, .compass text').animate({"opacity": "0"}, 250);
 	});
+
+	window.addEventListener("deviceorientation", function(e) {
+		if (compass > 0) {
+	    	setHands(watch, -e.webkitCompassHeading, -e.webkitCompassHeading, 100);
+	    }
+	}, false);
 });
 
 function newStrap(watch, width, height) {
