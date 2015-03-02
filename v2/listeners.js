@@ -1,5 +1,4 @@
 function buttonListeners(watch) {
-	// UI & Hover animations for buttons
 
 	$('.button').on('mouseenter', function(){
 		Snap($(this).find('.core')[0]).animate({transform: 't3'}, 50);
