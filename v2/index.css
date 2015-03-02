@@ -90,6 +90,16 @@ body {
 	opacity: .125;
 }
 
+.interface,
+.hands,
+.smallTicks,
+.largeTicks {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	pointer-events: none;
+}
+
 .rotate {
 	opacity: 0;
 	position: absolute;
