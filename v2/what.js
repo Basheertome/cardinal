@@ -1,19 +1,25 @@
 what = {
 	mode: 1,
-	modes: ['', 'solo', 'total'],
+	modes: ['', 'activity', 'cumulative'],
 
 	start: function(watch) {
-		console.log('hello WHAT');
 		watch.mode = 2;
+		$('.h1').fadeOut(250, function() {
+			$(this).text('what');
+			$(this).fadeIn(250);
+		});
+		$('.h2').fadeOut(250, function() {
+			$(this).text(what.modes[what.mode]);
+			$(this).fadeIn(250);
+		});
 		what[what.modes[what.mode]].start(watch);
 	},
 
 	end: function(watch, callback) {
-		console.log('bye WHAT');
 		what[what.modes[what.mode]].end(watch, callback);
 	},
 
-	solo: {
+	activity: {
 		start: function(watch) {
 
 		},
@@ -35,7 +41,7 @@ what = {
 		}
 	},
 
-	total: {
+	cumulative: {
 		start: function(watch) {
 
 		},
@@ -75,6 +81,10 @@ what = {
 					what[what.modes[1]].start);
 					what.mode = 1;
 				}
+				$('.h2').fadeOut(250, function() {
+					$(this).text(what.modes[what.mode]);
+					$(this).fadeIn(250);
+				});
 				break;
 			case 3:
 				where.end(watch, what.start);

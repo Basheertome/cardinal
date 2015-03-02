@@ -3,13 +3,19 @@ when = {
 	modes: ['', 'time', 'date', 'alarm', 'timer'],
 
 	start: function(watch) {
-		console.log('hello WHEN');
 		watch.mode = 1;
+		$('.h1').fadeOut(250, function() {
+			$(this).text('when');
+			$(this).fadeIn(250);
+		});
+		$('.h2').fadeOut(250, function() {
+			$(this).text(when.modes[when.mode]);
+			$(this).fadeIn(250);
+		});
 		when[when.modes[when.mode]].start(watch);
 	},
 
 	end: function(watch, callback) {
-		console.log('bye WHEN');
 		when[when.modes[when.mode]].end(watch, callback);
 	},
 
@@ -131,6 +137,10 @@ when = {
 					when[when.modes[1]].start);
 					when.mode = 1;
 				}
+				$('.h2').fadeOut(250, function() {
+					$(this).text(when.modes[when.mode]);
+					$(this).fadeIn(250);
+				});
 				break;
 			case 2:
 				what.end(watch, when.start);

@@ -3,13 +3,19 @@ where = {
 	modes: ['', 'map', 'train', 'compass', 'weather'],
 
 	start: function(watch) {
-		console.log('hello WHERE');
 		watch.mode = 3;
+		$('.h1').fadeOut(250, function() {
+			$(this).text('where');
+			$(this).fadeIn(250);
+		});
+		$('.h2').fadeOut(250, function() {
+			$(this).text(where.modes[where.mode]);
+			$(this).fadeIn(250);
+		});
 		where[where.modes[where.mode]].start(watch);
 	},
 
 	end: function(watch, callback) {
-		console.log('bye WHERE');
 		where[where.modes[where.mode]].end(watch, callback);
 	},
 
@@ -151,6 +157,10 @@ where = {
 					where[where.modes[1]].start);
 					where.mode = 1;
 				}
+				$('.h2').fadeOut(250, function() {
+					$(this).text(where.modes[where.mode]);
+					$(this).fadeIn(250);
+				});
 				break;
 		}
 	},

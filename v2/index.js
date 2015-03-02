@@ -3,10 +3,10 @@ $(document).ready(function(){
 	var watch = {
 		canvas: Snap('.watch'),
 		mode: 0,
-		x: $(window).width() / 2,
-		y: $(window).height() / 2,
 		width: 209,
-		bezel: 30
+		bezel: 30,
+		x: 360 / 2,
+		y: 600 / 2,
 	};
 
 	setup(watch);
@@ -18,12 +18,18 @@ $(document).ready(function(){
 });
 
 function setup(watch) {
+	$('.watch')[0].setAttribute('viewBox', '0 0 ' + (watch.x*2) + ' ' + (watch.y*2));
+
 	watch.buttons = {
 		top: newButton(watch, 'top', -25, 8, 45, 1),
 		middle: newButton(watch, 'middle', 0, 8, 45, 1),
 		bottom: newButton(watch, 'bottom', 25, 8, 45, 1)
 	};
-	watch.buttons.group = watch.canvas.group(watch.buttons.top, watch.buttons.middle, watch.buttons.bottom).attr({'class': 'buttons'});
+	watch.buttons.group = watch.canvas.group(
+		watch.buttons.top,
+		watch.buttons.middle,
+		watch.buttons.bottom
+	).attr({'class': 'buttons'});
 
 	watch.frame = newFrame(watch).
 		attr({'class': 'frame'});
@@ -33,6 +39,11 @@ function setup(watch) {
 		'class': 'strap'
 	});
 
+	watch.h1 = watch.canvas.text(watch.x, watch.y + (watch.width/2) + (watch.bezel*1.9), 'mode').
+		attr({'class': 'h1'});
+	watch.h2 = watch.canvas.text(watch.x, watch.y + (watch.width/2) + (watch.bezel*2.55), 'submode').
+		attr({'class': 'h2'});
+
 	watch.dial = newDial(watch)
 		.attr({'class': 'dial'});
 
@@ -41,7 +52,16 @@ function setup(watch) {
 	watch.largeTicks = newTicks(watch, 1.25, 16, 1, 12)
 		.attr({'class': 'largeTicks'});
 
-	watch.base = watch.canvas.group(watch.buttons.group, watch.frame, watch.strap, watch.dial, watch.smallTicks, watch.largeTicks).attr({'class': 'base'});
+	watch.base = watch.canvas.group(
+		watch.buttons.group,
+		watch.frame,
+		watch.strap,
+		watch.h1,
+		watch.h2,
+		watch.dial,
+		watch.smallTicks,
+		watch.largeTicks
+	).attr({'class': 'base'});
 
 	watch.interface = watch.canvas.group().attr({'class': 'interface'});
 
@@ -50,7 +70,10 @@ function setup(watch) {
 	watch.hourHand = newHand(watch, 7, (watch.width/2)*.55, 7, 0)
 		.attr({'class': 'hour'});
 
-	watch.hands = watch.canvas.group(watch.minuteHand, watch.hourHand).attr({'class': 'hands'});
+	watch.hands = watch.canvas.group(
+		watch.minuteHand,
+		watch.hourHand
+	).attr({'class': 'hands'});
 
 	touchListeners(watch);
 	buttonListeners(watch);
