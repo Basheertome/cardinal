@@ -38,6 +38,13 @@ where = {
 
 		rotate: function(watch, event) {
 			console.log('rotate!');
+			if (event.type == 'rotatestart') {
+
+			} else if (event.type == 'rotateend') {
+
+			} else {
+
+			}
 		}
 	},
 
@@ -60,6 +67,13 @@ where = {
 
 		rotate: function(watch, event) {
 			console.log('rotate!');
+			if (event.type == 'rotatestart') {
+
+			} else if (event.type == 'rotateend') {
+
+			} else {
+
+			}
 		}
 	},
 
@@ -111,6 +125,13 @@ where = {
 
 		rotate: function(watch, event) {
 			console.log('rotate!');
+			if (event.type == 'rotatestart') {
+
+			} else if (event.type == 'rotateend') {
+
+			} else {
+
+			}
 		}
 	},
 
@@ -133,11 +154,18 @@ where = {
 
 		rotate: function(watch, event) {
 			console.log('rotate!');
+			if (event.type == 'rotatestart') {
+
+			} else if (event.type == 'rotateend') {
+
+			} else {
+
+			}
 		}
 	},
 
 	button: function(watch) {
-		switch(watch.mode) {
+		switch (watch.mode) {
 			case 0:
 				where.start(watch);
 				break;

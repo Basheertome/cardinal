@@ -14,6 +14,14 @@ body {
 	font-family: 'Metric-Regular', sans-serif;
 }
 
+.touched {
+	fill: #eee !important;
+}
+
+.touchedscreen {
+	fill: #eee !important;
+}
+
 .watch {
 	opacity: 1;
 	position: absolute;
@@ -41,20 +49,19 @@ body {
 .h1 {
 	fill: #888;
 	font-size: 24px;
-	line-height: 24px;
 }
 
 .h2 {
 	fill: #aaa;
 	font-size: 16px;
-	line-height: 16px;
 }
 
 .frame,
 .button .core,
-.dial {
+.dial, .ring {
 	fill: #fff;
 	stroke: #e6e7e8;
+	transition: fill .15s linear;
 }
 
 .button {
@@ -63,6 +70,7 @@ body {
 
 .screen {
 	stroke: #000;
+	transition: fill .15s linear;
 }
 
 .smallTicks,
@@ -70,26 +78,89 @@ body {
 	fill: #e6e7e8;
 }
 
+.pie {
+	fill: transparent;
+	stroke: #00AEEF;
+	opacity: .25;
+	transition: stroke-dasharray .5s linear, stroke-dashoffset .5s linear;
+}
+
 .numbers,
 .compass,
 .rotate {
 	fill: #00AEEF;
-	font-size: 13px;
-	line-height: 13px;
+	font-size: 14px;
 	text-anchor: middle;
 	pointer-events: none;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	user-select: none;
 }
-.alarm, .numbers text, .compass text{
+.alarm, .timerHand, .zone, .numbers text, .compass text, .calendar text, .timerDial text, .timerSubdial text{
 	opacity: 0;
 }
 
-.compass {
+.calendar {
+	fill: #00AEEF;
+	font-size: 12px;
+	pointer-events: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+.calendar text:nth-child() {
+	text-anchor: start; }
+.calendar text:nth-child(-n+6) {
+	text-anchor: end; }
+.calendar text:first-child,
+.calendar text:nth-child(7) {
+	text-anchor: middle; }
+
+.calendarlabel,
+.calendarsetlabel,
+.alarmlabel {
+	opacity: 0;
+	font-family: 'Metric-Light', sans-serif;
+	fill: #00AEEF;
+	font-size: 16px;
+	text-anchor: middle;
+	pointer-events: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+.calendarsetlabel, .alarmlabel {
 	font-family: 'Metric-Regular', sans-serif;
+}
+
+.alarmlabel {
+	font-size: 24px;
+}
+
+.compass {
 	font-size: 18px;
-	line-height: 18px;
+}
+
+.timerDial {
+	fill: #00AEEF;
+	font-size: 16px;
+	text-anchor: middle;
+	pointer-events: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+.timerSubdial {
+	fill: #00AEEF;
+	font-size: 9px;
+	text-anchor: middle;
+	pointer-events: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
 }
 
 .minute,
@@ -99,8 +170,14 @@ body {
 	stroke-width: 1.75;
 }
 
-.alarm {
+.alarm, .timerHand {
 	fill: #00AEEF;
+}
+
+.zone {
+	fill: #fff;
+	stroke: #00AEEF;
+	stroke-width: 1.75;
 }
 
 .black {

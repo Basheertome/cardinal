@@ -67,8 +67,10 @@ function setup(watch) {
 
 	watch.minuteHand = newHand(watch, 7, (watch.width/2)*.86, 7, 0)
 		.attr({'class': 'minute'});
+	watch.minutes = 0;
 	watch.hourHand = newHand(watch, 7, (watch.width/2)*.55, 7, 0)
 		.attr({'class': 'hour'});
+	watch.hour = 0;
 
 	watch.hands = watch.canvas.group(
 		watch.minuteHand,
@@ -77,6 +79,22 @@ function setup(watch) {
 
 	touchListeners(watch);
 	buttonListeners(watch);
+
+	var date = new Date();
+	watch.time = {
+		minutes: 0,
+		hour: 0,
+		day: date.getDay(),
+		date: date.getDate(),
+		month: date.getMonth(),
+		year: date.getFullYear(),
+		fullMonth: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+		shortMonth: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+	};
+	var minutes = date.getMinutes();
+	watch.time.minutes = (minutes/60.0)*360;
+	var hour = date.getHours(); if (hour > 12) {hour -= 12;}
+	watch.time.hour = (hour/12)*360;
 }
 
 function newDigitalHand(watch, width, height, angle) {
@@ -86,16 +104,17 @@ function newDigitalHand(watch, width, height, angle) {
 			   'l' + (width/2) + ',' + (width/2) +
 			   'l' + (width/-2) + ',' + (width/2) + 
 			   'l' + -height + ',0z'
-	);
-	hand.transform('r' + (-90+angle) + ',' + watch.x + ',' + watch.y);
+	).transform('r' + (angle-90) + ',' + watch.x + ',' + watch.y);
 	return hand;
 }
 
 function setTime(watch, hour, minutes, speed) {
 	setHand(watch, 'minuteHand', minutes, speed);
 	setShadow(watch, 'minuteHand', minutes, speed);
+	watch.minutes = minutes;
 	setHand(watch, 'hourHand', hour, speed);
 	setShadow(watch, 'hourHand', hour, speed);
+	watch.hour = hour;
 }
 
 function setHand(watch, hand, angle, speed) {
@@ -106,13 +125,4 @@ function setShadow(watch, hand, angle, speed) {
 	var shadowx = parseFloat(Math.sin(angle * (Math.PI / 180)) * -5).toFixed(3);
 	var shadowy = parseFloat(Math.cos(angle * (Math.PI / 180)) * -5).toFixed(3);
 	watch[hand][0].animate({transform: 't' + shadowy + ',' + -shadowx}, speed);
-}
-
-function showTime(watch, speed) {
-	var date = new Date();
-	var minutes = date.getMinutes();
-	minutes = (minutes/60.0)*360;
-	var hour = date.getHours(); if (hour > 12) {hour -= 12;}
-	hour = (hour/12)*360;
-	setTime(watch, hour, minutes, speed);
 }

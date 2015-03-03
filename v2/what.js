@@ -38,6 +38,13 @@ what = {
 
 		rotate: function(watch, event) {
 			console.log('rotate!');
+			if (event.type == 'rotatestart') {
+
+			} else if (event.type == 'rotateend') {
+
+			} else {
+
+			}
 		}
 	},
 
@@ -60,6 +67,13 @@ what = {
 
 		rotate: function(watch, event) {
 			console.log('rotate!');
+			if (event.type == 'rotatestart') {
+
+			} else if (event.type == 'rotateend') {
+
+			} else {
+
+			}
 		}
 	},
 
