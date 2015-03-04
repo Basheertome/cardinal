@@ -85,8 +85,13 @@ body {
 	transition: stroke-dasharray .5s linear, stroke-dashoffset .5s linear;
 }
 
+.rose {
+	opacity: 0;
+	fill: #00AEEF;
+}
+
 .numbers,
-.compass,
+.compassDial,
 .rotate {
 	fill: #00AEEF;
 	font-size: 14px;
@@ -96,7 +101,7 @@ body {
 	-moz-user-select: none;
 	user-select: none;
 }
-.alarm, .timerHand, .zone, .numbers text, .compass text, .calendar text, .timerDial text, .timerSubdial text{
+.alarm, .timerHand, .zone, .numbers text, .compassDial text, .compassSubdial text, .calendar text, .timerDial text, .timerSubdial text{
 	opacity: 0;
 }
 
@@ -119,7 +124,9 @@ body {
 
 .calendarlabel,
 .calendarsetlabel,
-.alarmlabel {
+.alarmlabel,
+.compasslabel,
+.savedcompasslabel {
 	opacity: 0;
 	font-family: 'Metric-Light', sans-serif;
 	fill: #00AEEF;
@@ -139,7 +146,15 @@ body {
 	font-size: 24px;
 }
 
-.compass {
+.compassDial {
+	font-size: 18px;
+}
+
+.compasslabel {
+	font-size: 26px;
+}
+
+.savedcompasslabel {
 	font-size: 18px;
 }
 
@@ -163,6 +178,16 @@ body {
 	user-select: none;
 }
 
+.compassSubdial {
+	fill: #00AEEF;
+	font-size: 8px;
+	text-anchor: middle;
+	pointer-events: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
 .minute,
 .hour {
 	fill: #fff;
@@ -170,7 +195,7 @@ body {
 	stroke-width: 1.75;
 }
 
-.alarm, .timerHand {
+.alarm, .timerHand, .compassHand {
 	fill: #00AEEF;
 }
 
