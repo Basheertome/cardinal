@@ -14,11 +14,7 @@ body {
 	font-family: 'Metric-Regular', sans-serif;
 }
 
-.touched {
-	fill: #eee !important;
-}
-
-.touchedscreen {
+.touched, .touchedscreen {
 	fill: #eee !important;
 }
 
@@ -40,10 +36,6 @@ body {
 .h1,
 .h2 {
 	text-anchor: middle;
-	pointer-events: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
 }
 
 .h1 {
@@ -78,14 +70,26 @@ body {
 	fill: #e6e7e8;
 }
 
-.pie {
+.pie,
+.cumulativepie,
+.cumulativepierim {
 	fill: transparent;
 	stroke: #00AEEF;
 	opacity: .25;
 	transition: stroke-dasharray .5s linear, stroke-dashoffset .5s linear;
 }
 
-.rose {
+.cumulativepie, .cumulativepierim {
+	stroke-width: 1;
+}
+
+.cumulativepierim {
+	opacity: 1;
+}
+
+.rose,
+.icon,
+.cumulativeicon {
 	opacity: 0;
 	fill: #00AEEF;
 }
@@ -96,22 +100,23 @@ body {
 	fill: #00AEEF;
 	font-size: 14px;
 	text-anchor: middle;
-	pointer-events: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
 }
-.alarm, .timerHand, .zone, .numbers text, .compassDial text, .compassSubdial text, .calendar text, .timerDial text, .timerSubdial text{
+.alarm,
+.timerHand,
+.zone,
+.numbers text,
+.compassDial text,
+.compassSubdial text,
+.calendar text,
+.timerDial text,
+.timerSubdial text,
+.activitylabel text{
 	opacity: 0;
 }
 
 .calendar {
 	fill: #00AEEF;
 	font-size: 12px;
-	pointer-events: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
 }
 
 .calendar text:nth-child() {
@@ -122,31 +127,36 @@ body {
 .calendar text:nth-child(7) {
 	text-anchor: middle; }
 
+.activitydial {
+	fill: #00AEEF;
+	font-size: 16px;
+	text-anchor: middle;
+}
+
 .calendarlabel,
 .calendarsetlabel,
 .alarmlabel,
 .compasslabel,
-.savedcompasslabel {
+.savedcompasslabel,
+.activitylabel {
 	opacity: 0;
 	font-family: 'Metric-Light', sans-serif;
 	fill: #00AEEF;
 	font-size: 16px;
 	text-anchor: middle;
-	pointer-events: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
 }
 
 .calendarsetlabel, .alarmlabel {
 	font-family: 'Metric-Regular', sans-serif;
 }
 
+.activitylabel,
 .alarmlabel {
 	font-size: 24px;
 }
 
-.compassDial {
+.compassDial,
+.savedcompasslabel {
 	font-size: 18px;
 }
 
@@ -154,38 +164,22 @@ body {
 	font-size: 26px;
 }
 
-.savedcompasslabel {
-	font-size: 18px;
-}
-
 .timerDial {
 	fill: #00AEEF;
 	font-size: 16px;
 	text-anchor: middle;
-	pointer-events: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
 }
 
 .timerSubdial {
 	fill: #00AEEF;
 	font-size: 9px;
 	text-anchor: middle;
-	pointer-events: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
 }
 
 .compassSubdial {
 	fill: #00AEEF;
 	font-size: 8px;
 	text-anchor: middle;
-	pointer-events: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
 }
 
 .minute,
@@ -195,7 +189,9 @@ body {
 	stroke-width: 1.75;
 }
 
-.alarm, .timerHand, .compassHand {
+.alarm,
+.timerHand,
+.compassHand {
 	fill: #00AEEF;
 }
 
@@ -214,6 +210,8 @@ body {
 	opacity: .125;
 }
 
+.h1,
+.h2,
 .interface,
 .hands,
 .smallTicks,

@@ -638,7 +638,7 @@ function showSetYear(watch) {
 	);
 
 	setTime(watch, 0, 0, 500);
-	$('.calendar text, .calendarlabel').each(function(i) {
+	$('.calendar text, .calendarsetlabel').each(function(i) {
 		$(this).delay(i*25).animate({'opacity': '1'}, 250);
 	});
 }
@@ -656,7 +656,7 @@ function showSetMonth(watch) {
 	);
 
 	setTime(watch, 0, 0, 500);
-	$('.calendar text, .calendarlabel').each(function(i) {
+	$('.calendar text, .calendarsetlabel').each(function(i) {
 		$(this).delay(i*25).animate({'opacity': '1'}, 250);
 	});
 }
@@ -674,7 +674,7 @@ function showSetDate(watch) {
 	);
 
 	setTime(watch, 0, 0, 500);
-	$('.calendar text, .calendarlabel').each(function(i) {
+	$('.calendar text, .calendarsetlabel').each(function(i) {
 		$(this).delay(i*25).animate({'opacity': '1'}, 250);
 	});
 }
