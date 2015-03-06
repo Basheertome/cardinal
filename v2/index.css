@@ -248,7 +248,8 @@ body {
 .compassHand,
 .weatherhand,
 .weatherhandone,
-.weatherhandtwo {
+.weatherhandtwo,
+.weathershadows {
 	fill: #00AEEF;
 }
 

@@ -485,13 +485,105 @@ where = {
 		},
 
 		rotate: function(watch, event) {
-			console.log('rotate!');
-			if (event.type == 'rotatestart') {
-
-			} else if (event.type == 'rotateend') {
-
-			} else {
-
+			if (where.weather.mode == 0) {
+				if (event.type == 'rotatestart') {
+					watch.weatherHighShadow = newDigitalHand(watch, 7, (watch.width/2)*.86, watch.minutes)
+						.attr({'class': 'weathershadows'});
+					watch.weatherLowShadow = newDigitalHand(watch, 7, (watch.width/2)*.55, watch.hour)
+						.attr({'class': 'weathershadows'});
+					watch.interface.add(
+						watch.weatherHighShadow,
+						watch.weatherLowShadow
+					);
+					var anglemapper = 360 / (where.weather.modesettings[3][4] - where.weather.modesettings[3][3]);
+					$('.nowlabel, .weatherlabel').animate({'opacity': '0'}, 125, function() {
+						if ((watch.time.hour/360)*12 < 23) {
+							watch.weatherlabel.attr('text', ((watch.time.hour/360)*12 + 1) + ':00');
+						} else {
+							watch.weatherlabel.attr('text', '0:00');
+						}
+						$('.nowlabel').remove();
+						delete watch.nowlabel;
+						watch.nowlabel = newhandlabel(watch, anglemapper, where.weather.modesettings[3][6][0][0], where.weather.modesettings[3][3], where.weather.modesettings[3][6][0][0] + 'º', ((watch.width/2)*.7), 'nowlabel');
+						watch.interface.add(watch.nowlabel);
+						$('.nowlabel, .weatherlabel').animate({'opacity': '1'}, 125);
+					});
+					if (where.weather.modesettings[3][6][0][1] != where.weather.modesettings[where.weather.mode][7]) {
+						$('.weathericon').animate({'opacity': '0'}, 125, function() {
+							$('.weathericon').remove();
+							delete watch.icon;
+							watch.icon = watch.canvas.path(where.weather.icons[where.weather.modesettings[3][6][0][1]])
+								.transform('t' + (watch.x - 35) + ',' + (watch.y - 35) + 's.85')
+								.attr({'class': 'weathericon'});
+							watch.interface.add(watch.icon);
+							$('.weathericon').animate({'opacity': '.25'}, 250);
+						});
+					}
+					setTime(watch, (where.weather.modesettings[3][6][0][0] - where.weather.modesettings[3][3]) * anglemapper, (where.weather.modesettings[3][6][0][0] - where.weather.modesettings[3][3]) * anglemapper, 250);
+					$('.weatherhand').animate({'opacity': '0'}, 250, function() {
+						where.weather.rotatemodecounter = 0;
+						rotateUpdate = setInterval(function() {
+							if ((Math.abs(Math.floor(where.weather.rotatecounter/15)) != where.weather.rotatemodecounter) && (Math.abs(Math.floor(where.weather.rotatecounter/15)) < where.weather.modesettings[3][6].length)) {
+								if (where.weather.modesettings[3][6][Math.abs(Math.floor(where.weather.rotatecounter/15))][1] != where.weather.modesettings[3][6][where.weather.rotatemodecounter][1]) {
+									$('.weathericon').animate({'opacity': '0'}, 125, function() {
+										$('.weathericon').remove();
+										delete watch.icon;
+										watch.icon = watch.canvas.path(where.weather.icons[where.weather.modesettings[3][6][Math.abs(Math.floor(where.weather.rotatecounter/15))][1]])
+											.transform('t' + (watch.x - 35) + ',' + (watch.y - 35) + 's.85')
+											.attr({'class': 'weathericon'});
+										watch.interface.add(watch.icon);
+										$('.weathericon').animate({'opacity': '.25'}, 250);
+									});
+								}
+								where.weather.rotatemodecounter = Math.abs(Math.floor(where.weather.rotatecounter/15));
+								var anglemapper = 360 / (where.weather.modesettings[3][4] - where.weather.modesettings[3][3]);
+								$('.nowlabel, .weatherlabel').animate({'opacity': '0'}, 50, function() {
+									if ((watch.time.hour/360)*12 < 23) {
+										watch.weatherlabel.attr('text', ((watch.time.hour/360)*12 + where.weather.rotatemodecounter + 1) + ':00');
+									} else {
+										watch.weatherlabel.attr('text', '0:00');
+									}
+									$('.nowlabel').remove();
+									delete watch.nowlabel;
+									watch.nowlabel = newhandlabel(watch, anglemapper, where.weather.modesettings[3][6][where.weather.rotatemodecounter][0], where.weather.modesettings[3][3], where.weather.modesettings[3][6][where.weather.rotatemodecounter][0] + 'º', ((watch.width/2)*.7), 'nowlabel');
+									watch.interface.add(watch.nowlabel);
+									$('.nowlabel, .weatherlabel').animate({'opacity': '1'}, 50);
+								});
+								setTime(watch, (where.weather.modesettings[3][6][where.weather.rotatemodecounter][0] - where.weather.modesettings[3][3]) * anglemapper, (where.weather.modesettings[3][6][where.weather.rotatemodecounter][0] - where.weather.modesettings[3][3]) * anglemapper, 250);
+							}
+						}, 100);
+					});
+				} else if (event.type == 'rotateend') {
+					$('.weatherhand').animate({'opacity': '1'}, 250, function() {
+						$('.weathershadows').remove();
+						delete watch.weatherHighShadow;
+						delete watch.weatherLowShadow;
+					});
+					var anglemapper = 360 / (where.weather.modesettings[where.weather.mode][5] - where.weather.modesettings[where.weather.mode][4]);
+					$('.nowlabel, .weatherlabel').animate({'opacity': '0'}, 125, function() {
+						watch.weatherlabel.attr('text', where.weather.modesettings[where.weather.mode][0]);
+						$('.nowlabel').remove();
+						delete watch.nowlabel;
+						watch.nowlabel = newhandlabel(watch, anglemapper, where.weather.modesettings[where.weather.mode][2], where.weather.modesettings[where.weather.mode][4], where.weather.modesettings[where.weather.mode][2] + 'º', ((watch.width/2)*.7), 'nowlabel');
+						watch.interface.add(watch.nowlabel);
+						$('.nowlabel, .weatherlabel').animate({'opacity': '1'}, 125);
+					});
+					if (where.weather.modesettings[3][6][where.weather.rotatemodecounter][1] != where.weather.modesettings[where.weather.mode][7]) {
+						$('.weathericon').animate({'opacity': '0'}, 125, function() {
+							$('.weathericon').remove();
+							delete watch.icon;
+							watch.icon = watch.canvas.path(where.weather.icons[where.weather.modesettings[where.weather.mode][7]])
+								.transform('t' + (watch.x - 35) + ',' + (watch.y - 35) + 's.85')
+								.attr({'class': 'weathericon'});
+							watch.interface.add(watch.icon);
+							$('.weathericon').animate({'opacity': '.25'}, 250);
+						});
+					}
+					setTime(watch, (where.weather.modesettings[where.weather.mode][1] - where.weather.modesettings[where.weather.mode][4]) * anglemapper, (where.weather.modesettings[where.weather.mode][3] - where.weather.modesettings[where.weather.mode][4]) * anglemapper, 250);
+					clearInterval(rotateUpdate);
+				} else {
+					where.weather.rotatecounter = event.rotation;
+				}
 			}
 		}
 	},
