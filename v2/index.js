@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	var watch = {
+	watch = {
 		canvas: Snap('.watch'),
 		mode: 0,
 		width: 209,
@@ -89,7 +89,8 @@ function setup(watch) {
 		month: date.getMonth(),
 		year: date.getFullYear(),
 		fullMonth: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-		shortMonth: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+		shortMonth: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+		shortWeekday: ['Sun', 'Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat']
 	};
 	var minutes = date.getMinutes();
 	watch.time.minutes = (minutes/60.0)*360;

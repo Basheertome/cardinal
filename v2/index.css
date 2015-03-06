@@ -89,7 +89,9 @@ body {
 
 .rose,
 .icon,
-.cumulativeicon {
+.cumulativeicon,
+.weathericon,
+.labelicon {
 	opacity: 0;
 	fill: #00AEEF;
 }
@@ -103,6 +105,9 @@ body {
 }
 .alarm,
 .timerHand,
+.weatherhand,
+.weatherhandone,
+.weatherhandtwo,
 .zone,
 .numbers text,
 .compassDial text,
@@ -110,7 +115,8 @@ body {
 .calendar text,
 .timerDial text,
 .timerSubdial text,
-.activitylabel text{
+.activitydial text,
+.weatherdial text {
 	opacity: 0;
 }
 
@@ -127,10 +133,14 @@ body {
 .calendar text:nth-child(7) {
 	text-anchor: middle; }
 
-.activitydial {
+.activitydial, .weatherdial {
 	fill: #00AEEF;
 	font-size: 16px;
 	text-anchor: middle;
+}
+
+.weatherdial {
+	font-size: 14px;
 }
 
 .calendarlabel,
@@ -138,12 +148,55 @@ body {
 .alarmlabel,
 .compasslabel,
 .savedcompasslabel,
-.activitylabel {
+.activitylabel,
+.weatherlabel {
 	opacity: 0;
 	font-family: 'Metric-Light', sans-serif;
 	fill: #00AEEF;
 	font-size: 16px;
 	text-anchor: middle;
+}
+
+.highlabel,
+.lowlabel {
+	opacity: 0;
+	font-family: 'Metric-Light', sans-serif;
+	fill: #00AEEF;
+	font-size: 10px;
+}
+
+.highlabel.flipped,
+.lowlabel.flipped,
+.nowlabel.flipped {
+	text-anchor: end;
+}
+
+.nowlabel {
+	opacity: 0;
+	font-family: 'Metric-Regular', sans-serif;
+	fill: #00AEEF;
+	font-size: 14px;
+}
+
+.nextlabelone,
+.nextlabeltwo {
+	opacity: 0;
+	font-family: 'Metric-Light', sans-serif;
+	fill: #00AEEF;
+	font-size: 10px;
+}
+
+.nextlabelone.flipped,
+.nextlabeltwo.flipped,
+.nextlabel.flipped {
+	text-anchor: end;
+}
+
+.nextlabel {
+	opacity: 0;
+	font-family: 'Metric-Regular', sans-serif;
+	fill: #00AEEF;
+	font-size: 14px;
 }
 
 .calendarsetlabel, .alarmlabel {
@@ -156,7 +209,8 @@ body {
 }
 
 .compassDial,
-.savedcompasslabel {
+.savedcompasslabel,
+.weatherlabel {
 	font-size: 18px;
 }
 
@@ -191,7 +245,10 @@ body {
 
 .alarm,
 .timerHand,
-.compassHand {
+.compassHand,
+.weatherhand,
+.weatherhandone,
+.weatherhandtwo {
 	fill: #00AEEF;
 }
 
