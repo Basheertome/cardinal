@@ -39,10 +39,18 @@ function setup(watch) {
 		'class': 'strap'
 	});
 
-	watch.h1 = watch.canvas.text(watch.x, watch.y + (watch.width/2) + (watch.bezel*1.9), 'mode').
+	watch.h1 = watch.canvas.text(watch.x, watch.y - (watch.width/2) - (watch.bezel*2.55), '').
 		attr({'class': 'h1'});
-	watch.h2 = watch.canvas.text(watch.x, watch.y + (watch.width/2) + (watch.bezel*2.55), 'submode').
+	watch.h2 = watch.canvas.text(watch.x, watch.y - (watch.width/2) - (watch.bezel*1.9), '').
 		attr({'class': 'h2'});
+	watch.h3a = watch.canvas.text(watch.x, watch.y + (watch.width/2) + (watch.bezel*2.15), '').
+		attr({'class': 'h3'});
+	watch.h3b = watch.canvas.text(watch.x, watch.y + (watch.width/2) + (watch.bezel*2.15) + 18, '').
+		attr({'class': 'h3'});
+	watch.h3c = watch.canvas.text(watch.x, watch.y + (watch.width/2) + (watch.bezel*2.15) + 36, '').
+		attr({'class': 'h3'});
+	watch.h3d = watch.canvas.text(watch.x, watch.y + (watch.width/2) + (watch.bezel*2.15) + 54, '').
+		attr({'class': 'h3'});
 
 	watch.dial = newDial(watch)
 		.attr({'class': 'dial'});
@@ -58,6 +66,10 @@ function setup(watch) {
 		watch.strap,
 		watch.h1,
 		watch.h2,
+		watch.h3a,
+		watch.h3b,
+		watch.h3c,
+		watch.h3d,
 		watch.dial,
 		watch.smallTicks,
 		watch.largeTicks
@@ -119,11 +131,21 @@ function setTime(watch, hour, minutes, speed) {
 }
 
 function setHand(watch, hand, angle, speed) {
-	watch[hand].animate({transform: 'r' + (angle-90) + ',' + watch.x + ',' + watch.y}, speed);
+	watch[hand].animate({transform: 'r' + (angle-90) + ',' + watch.x + ',' + watch.y}, speed, mina.easeinout);
 }
 
 function setShadow(watch, hand, angle, speed) {
 	var shadowx = parseFloat(Math.sin(angle * (Math.PI / 180)) * -5).toFixed(3);
 	var shadowy = parseFloat(Math.cos(angle * (Math.PI / 180)) * -5).toFixed(3);
-	watch[hand][0].animate({transform: 't' + shadowy + ',' + -shadowx}, speed);
+	watch[hand][0].animate({transform: 't' + shadowy + ',' + -shadowx}, speed, mina.easeinout);
+}
+
+function setInstructions(watch, line1, line2, line3, line4) {
+	$('.h3').fadeOut(250, function() {
+		$(watch.h3a.node).text(line1);
+		$(watch.h3b.node).text(line2);
+		$(watch.h3c.node).text(line3);
+		$(watch.h3d.node).text(line4);
+		$('.h3').fadeIn(250);
+	});
 }

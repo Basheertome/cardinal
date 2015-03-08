@@ -21,6 +21,7 @@ when = {
 
 	time: {
 		start: function(watch) {
+			setInstructions(watch, '● to show timezone', '●● + ↺ to set new', '', '');
 			watch.numbers = newNumbers(watch, 27)
 				.attr({'class': 'numbers'});
 			watch.interface.add(watch.numbers);
@@ -98,6 +99,7 @@ when = {
 
 	date: {
 		start: function(watch) {
+			setInstructions(watch, '● to view more info', '●● + ↺ to set date', '', '');
 			showMonth(watch);
 		},
 
@@ -205,6 +207,7 @@ when = {
 
 	alarm: {
 		start: function(watch) {
+			setInstructions(watch, '↺ to set new alarm', '●● to toggle alarm', '', '');
 			watch.numbers = newNumbers(watch, 27)
 				.attr({'class': 'numbers'});
 			watch.interface.add(watch.numbers);
@@ -286,6 +289,7 @@ when = {
 
 	timer: {
 		start: function(watch) {
+			setInstructions(watch, '● to start stopwatch', '↺ + ● to start timer', '● to pause and start', '●● to reset all');
 			watch.timerDial = newTimerDial(watch, 30)
 				.attr({'class': 'timerDial'});
 			watch.timerSubdial = newTimerSubdial(watch, 30)

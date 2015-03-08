@@ -34,18 +34,25 @@ body {
 }
 
 .h1,
-.h2 {
+.h2,
+.h3 {
 	text-anchor: middle;
 }
 
 .h1 {
-	fill: #888;
+	fill: #555;
 	font-size: 24px;
 }
 
 .h2 {
-	fill: #aaa;
+	fill: #888;
 	font-size: 16px;
+}
+
+.h3 {
+	fill: #999;
+	font-size: 14px;
+	font-family: 'Metric-RegularItalic', sans-serif;
 }
 
 .frame,
@@ -268,8 +275,28 @@ body {
 	opacity: .125;
 }
 
+.lines {
+	stroke: #00AEEF;
+}
+
+.linemasks {
+	fill: #fff;
+}
+
+.linelabels {
+	opacity: 0;
+	fill: #00AEEF;
+	text-anchor: middle;
+}
+
+.maplines, .maplabels {
+	opacity: 0;
+	fill: #00AEEF;
+}
+
 .h1,
 .h2,
+.h3,
 .interface,
 .hands,
 .smallTicks,
@@ -291,7 +318,7 @@ body {
 	font-weight: normal;
 	font-style: normal; }
 @font-face {
-	font-family: 'Metric-Medium';
-	src: url('../fonts/Metric-Medium.eot?#iefix') format('embedded-opentype'), url('../fonts/Metric-Medium.otf') format('opentype'), url('../fonts/Metric-Medium.woff') format('woff'), url('../fonts/Metric-Medium.ttf')  format('truetype'), url('../fonts/Metric-Medium.svg#Metric-Medium') format('svg');
+	font-family: 'Metric-RegularItalic';
+	src: url('../fonts/Metric-RegularItalic.eot?#iefix') format('embedded-opentype'), url('../fonts/Metric-RegularItalic.otf') format('opentype'), url('../fonts/Metric-RegularItalic.woff') format('woff'), url('../fonts/Metric-RegularItalic.ttf')  format('truetype'), url('../fonts/Metric-RegularItalic.svg#Metric-RegularItalic') format('svg');
 	font-weight: normal;
 	font-style: normal; }

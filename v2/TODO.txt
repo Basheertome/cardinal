@@ -1,6 +1,0 @@
-Modes left:
-• Map
-
-General TODO's:
-• Add suggestions or coach marks for each screen?
-• Better way of showing rotation & tap?
