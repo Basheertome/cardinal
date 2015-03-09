@@ -23,6 +23,7 @@ what = {
 	activity: {
 		start: function(watch) {
 			setInstructions(watch, '● to view other past', 'activities today', '');
+			updateWhatDots(watch);
 			watch.activityDial = newCalendarDial(watch, 28, 5.5, what.activity.units[what.activity.modesettings[what.activity.mode][2]])
 				.attr({'class': 'activitydial'});
 			watch.activityLabel = watch.canvas.text(watch.x, watch.y + 46, what.activity.modesettings[what.activity.mode][0])
@@ -136,6 +137,7 @@ what = {
 	cumulative: {
 		start: function(watch) {
 			setInstructions(watch, '', '', '');
+			updateWhatDots(watch);
 			watch.activityDial = newCalendarDial(watch, 28, 5.5, ['0', '6', '12', '18'])
 				.attr({'class': 'activitydial'});
 			watch.interface.add(watch.activityDial);
@@ -405,5 +407,13 @@ function setCumulativePie(watch, pie, offset, start, stop, speed) {
 				(watch.y - 20 + pieValues.pieradius * 1.1 * Math.sin((start+((stop-start)/2)-90) * (Math.PI / 180))) + 's.5'
 			}, speed/5, mina.easeinout);
 		}
+	});
+}
+
+function updateWhatDots(watch) {
+	$('.buttonlabel').removeClass('active');
+	$('.buttonlabel').animate({'opacity': '.25'}, 250).promise().done(function() {
+		watch.buttonlabel2[what.mode-1].addClass('active');
+		$(watch.buttonlabel2[what.mode-1].node).animate({'opacity': '1'}, 250);
 	});
 }

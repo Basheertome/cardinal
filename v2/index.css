@@ -55,6 +55,17 @@ body {
 	font-family: 'Metric-RegularItalic', sans-serif;
 }
 
+.buttonlabel {
+	opacity: .25;
+	fill: #999;
+	font-size: 12px;
+	transition: fill .25s linear;
+}
+
+.active {
+	fill: #00AEEF !important;
+}
+
 .frame,
 .button .core,
 .dial, .ring {
@@ -297,6 +308,7 @@ body {
 .h1,
 .h2,
 .h3,
+.buttonlabel,
 .interface,
 .hands,
 .smallTicks,

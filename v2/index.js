@@ -39,18 +39,53 @@ function setup(watch) {
 		'class': 'strap'
 	});
 
-	watch.h1 = watch.canvas.text(watch.x, watch.y - (watch.width/2) - (watch.bezel*2.55), '').
-		attr({'class': 'h1'});
-	watch.h2 = watch.canvas.text(watch.x, watch.y - (watch.width/2) - (watch.bezel*1.9), '').
-		attr({'class': 'h2'});
-	watch.h3a = watch.canvas.text(watch.x, watch.y + (watch.width/2) + (watch.bezel*2.15), '').
-		attr({'class': 'h3'});
-	watch.h3b = watch.canvas.text(watch.x, watch.y + (watch.width/2) + (watch.bezel*2.15) + 18, '').
-		attr({'class': 'h3'});
-	watch.h3c = watch.canvas.text(watch.x, watch.y + (watch.width/2) + (watch.bezel*2.15) + 36, '').
-		attr({'class': 'h3'});
-	watch.h3d = watch.canvas.text(watch.x, watch.y + (watch.width/2) + (watch.bezel*2.15) + 54, '').
-		attr({'class': 'h3'});
+	watch.h1 = watch.canvas.text(watch.x, watch.y - (watch.width/2) - (watch.bezel*2.55), '')
+		.attr({'class': 'h1'});
+	watch.h2 = watch.canvas.text(watch.x, watch.y - (watch.width/2) - (watch.bezel*1.9), '')
+		.attr({'class': 'h2'});
+	watch.h3a = watch.canvas.text(watch.x, watch.y + (watch.width/2) + (watch.bezel*2.15), '')
+		.attr({'class': 'h3'});
+	watch.h3b = watch.canvas.text(watch.x, watch.y + (watch.width/2) + (watch.bezel*2.15) + 18, '')
+		.attr({'class': 'h3'});
+	watch.h3c = watch.canvas.text(watch.x, watch.y + (watch.width/2) + (watch.bezel*2.15) + 36, '')
+		.attr({'class': 'h3'});
+	watch.h3d = watch.canvas.text(watch.x, watch.y + (watch.width/2) + (watch.bezel*2.15) + 54, '')
+		.attr({'class': 'h3'});
+
+	watch.buttonlabel1 = [
+		watch.canvas.text(watch.x + watch.width*.72, watch.y + 3, '●')
+			.transform('r' + -25 + ',' + watch.x + ',' + watch.y)
+			.attr({'class': 'buttonlabel'}),
+		watch.canvas.text(watch.x + watch.width*.72 + 10, watch.y + 3, '●')
+			.transform('r' + -25 + ',' + watch.x + ',' + watch.y)
+			.attr({'class': 'buttonlabel'}),
+		watch.canvas.text(watch.x + watch.width*.72 + 20, watch.y + 3, '●')
+			.transform('r' + -25 + ',' + watch.x + ',' + watch.y)
+			.attr({'class': 'buttonlabel'}),
+		watch.canvas.text(watch.x + watch.width*.72 + 30, watch.y + 3, '●')
+			.transform('r' + -25 + ',' + watch.x + ',' + watch.y)
+			.attr({'class': 'buttonlabel'})
+	];
+	watch.buttonlabel2 = [
+		watch.canvas.text(watch.x + watch.width*.72, watch.y + 3, '●')
+			.attr({'class': 'buttonlabel'}),
+		watch.canvas.text(watch.x + watch.width*.72 + 10, watch.y + 3, '●')
+			.attr({'class': 'buttonlabel'})
+	];
+	watch.buttonlabel3 = [
+		watch.canvas.text(watch.x + watch.width*.72, watch.y + 3, '●')
+			.transform('r' + 25 + ',' + watch.x + ',' + watch.y)
+			.attr({'class': 'buttonlabel'}),
+		watch.canvas.text(watch.x + watch.width*.72 + 10, watch.y + 3, '●')
+			.transform('r' + 25 + ',' + watch.x + ',' + watch.y)
+			.attr({'class': 'buttonlabel'}),
+		watch.canvas.text(watch.x + watch.width*.72 + 20, watch.y + 3, '●')
+			.transform('r' + 25 + ',' + watch.x + ',' + watch.y)
+			.attr({'class': 'buttonlabel'}),
+		watch.canvas.text(watch.x + watch.width*.72 + 30, watch.y + 3, '●')
+			.transform('r' + 25 + ',' + watch.x + ',' + watch.y)
+			.attr({'class': 'buttonlabel'})
+	];
 
 	watch.dial = newDial(watch)
 		.attr({'class': 'dial'});
@@ -70,6 +105,16 @@ function setup(watch) {
 		watch.h3b,
 		watch.h3c,
 		watch.h3d,
+		watch.buttonlabel1[0],
+		watch.buttonlabel1[1],
+		watch.buttonlabel1[2],
+		watch.buttonlabel1[3],
+		watch.buttonlabel2[0],
+		watch.buttonlabel2[1],
+		watch.buttonlabel3[0],
+		watch.buttonlabel3[1],
+		watch.buttonlabel3[2],
+		watch.buttonlabel3[3],
 		watch.dial,
 		watch.smallTicks,
 		watch.largeTicks

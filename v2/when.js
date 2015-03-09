@@ -22,6 +22,7 @@ when = {
 	time: {
 		start: function(watch) {
 			setInstructions(watch, '● to show timezone', '●● + ↺ to set new', '', '');
+			updateWhenDots(watch);
 			watch.numbers = newNumbers(watch, 27)
 				.attr({'class': 'numbers'});
 			watch.interface.add(watch.numbers);
@@ -100,6 +101,7 @@ when = {
 	date: {
 		start: function(watch) {
 			setInstructions(watch, '● to view more info', '●● + ↺ to set date', '', '');
+			updateWhenDots(watch);
 			showMonth(watch);
 		},
 
@@ -208,6 +210,7 @@ when = {
 	alarm: {
 		start: function(watch) {
 			setInstructions(watch, '↺ to set new alarm', '●● to toggle alarm', '', '');
+			updateWhenDots(watch);
 			watch.numbers = newNumbers(watch, 27)
 				.attr({'class': 'numbers'});
 			watch.interface.add(watch.numbers);
@@ -290,6 +293,7 @@ when = {
 	timer: {
 		start: function(watch) {
 			setInstructions(watch, '● to start stopwatch', '↺ + ● to start timer', '● to pause and start', '●● to reset all');
+			updateWhenDots(watch);
 			watch.timerDial = newTimerDial(watch, 30)
 				.attr({'class': 'timerDial'});
 			watch.timerSubdial = newTimerSubdial(watch, 30)
@@ -770,4 +774,24 @@ function newTimerSubdial(watch, offset) {
 		if (i == 2 || i == 5 || i == 8) {i+=1};
 	}
 	return timerSubdial;
+}
+
+function updateWhenDots(watch) {
+	$('.buttonlabel').animate({
+		'opacity': '.25',
+		'fill': '#999'
+	}, 250).promise().done(function() {
+		$(watch.buttonlabel1[when.mode-1].node).animate({
+			'opacity': '1',
+			'fill': '#00AEEF'
+		}, 250);
+	});
+}
+
+function updateWhenDots(watch) {
+	$('.buttonlabel').removeClass('active');
+	$('.buttonlabel').animate({'opacity': '.25'}, 250).promise().done(function() {
+		watch.buttonlabel1[when.mode-1].addClass('active');
+		$(watch.buttonlabel1[when.mode-1].node).animate({'opacity': '1'}, 250);
+	});
 }

@@ -22,6 +22,7 @@ where = {
 	map: {
 		start: function(watch) {
 			setInstructions(watch, '● to demo rural map', '●● to toggle zoom', '↺ to manually set', 'map rotation');
+			updateWhereDots(watch);
 			watch.maplines = watch.canvas.path(where.map.mapdata[where.map.mapdata.mode].lines)
 				.transform('t' + (watch.x - 107.5) + ',' + (watch.y - 107.5))
 				.attr({'class': 'maplines'});
@@ -164,6 +165,7 @@ where = {
 	transit: {
 		start: function(watch) {
 			setInstructions(watch, '', '', '', '');
+			updateWhereDots(watch);
 			setTime(watch, 270, 270, 500);
 			watch.linemasks = [
 				watch.canvas.rect(
@@ -371,7 +373,8 @@ where = {
 
 	compass: {
 		start: function(watch) {
-			setInstructions(watch, '● to show diff of two', 'different headings', '↺ to calibrate north', '');
+			setInstructions(watch, '● to show diff of two', 'different headings', '●● to reset to single', '↺ to calibrate north');
+			updateWhereDots(watch);
 			watch.heading = 150;
 
 			if (window.DeviceOrientationEvent) {
@@ -522,6 +525,7 @@ where = {
 	weather: {
 		start: function(watch) {
 			setInstructions(watch, '↺ to view by the hour', '● to show tomorrow', '●+ to show forecast', '');
+			updateWhereDots(watch);
 			if (where.weather.mode < 2) {
 				watch.weatherdial = newCalendarDial(watch, 28, 4.5, where.weather.modesettings[where.weather.mode][6])
 					.attr({'class': 'weatherdial'});
@@ -1008,4 +1012,12 @@ function newiconlabel(watch, anglemapper, anglevalue, angleoffset, icontype, han
 			.attr({'class': name});
 	}
 	return icon;
+}
+
+function updateWhereDots(watch) {
+	$('.buttonlabel').removeClass('active');
+	$('.buttonlabel').animate({'opacity': '.25'}, 250).promise().done(function() {
+		watch.buttonlabel3[where.mode-1].addClass('active');
+		$(watch.buttonlabel3[where.mode-1].node).animate({'opacity': '1'}, 250);
+	});
 }
