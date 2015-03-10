@@ -1,0 +1,359 @@
+* { margin:0; padding:0; }
+h1,h2,h3 { font-size: 100%; font-weight: normal; }
+ol,ul { list-style: none; }
+img {border: 0;}
+html {min-height: 100%;}
+
+html {
+	background: #15191a;
+	stroke-width: 2;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+	opacity: 0;
+	font-family: 'Metric-Regular', sans-serif;
+}
+
+svg {
+	background: url('watch.jpg') no-repeat;
+	background-position: calc(50% - 0px) calc(50% - 0px);
+	background-size: contain;
+}
+
+.touched, .touchedscreen {
+	fill: #d9ccc3 !important;
+}
+
+.watch {
+	opacity: 1;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	-webkit-transition: .15s linear opacity;
+	-moz-transition: .15s linear opacity;
+	transition: .15s linear opacity;
+}
+
+.h1,
+.h2 {
+	text-anchor: middle;
+}
+
+.h1 {
+	fill: #231a18;
+	font-size: 24px;
+	text-shadow: 0 1.5px 0 #8f5441;
+}
+
+.h2 {
+	fill: #231a18;
+	font-size: 16px;
+	text-shadow: 0 1.5px 0 #8f5441;
+}
+
+.buttonlabel {
+	display: none;
+	opacity: .25;
+	fill: #999;
+	font-size: 12px;
+	transition: fill .25s linear;
+}
+
+.active {
+	fill: #ddd !important;
+}
+
+.button .core {
+	transition: fill .15s linear;
+}
+
+.button {
+	fill: transparent;
+	cursor: pointer;
+}
+
+.buttonmask {
+	fill: #000;
+	stroke: #fff;
+	stroke-width: 50;
+}
+
+.frame,
+.dial,
+.ring,
+.screen {
+	fill: transparent;
+}
+
+.smallTicks,
+.largeTicks {
+	fill: #5e5c55;
+}
+
+.pie,
+.cumulativepie,
+.cumulativepierim {
+	fill: transparent;
+	stroke: #fff;
+	opacity: .25;
+	transition: stroke-dasharray .5s linear, stroke-dashoffset .5s linear;
+}
+
+.cumulativepie, .cumulativepierim {
+	stroke-width: 1;
+}
+
+.cumulativepierim {
+	opacity: 1;
+}
+
+.rose,
+.icon,
+.cumulativeicon,
+.weathericon,
+.labelicon {
+	opacity: 0;
+	fill: #fff;
+}
+
+.numbers,
+.compassDial,
+.rotate {
+	fill: #fff;
+	font-size: 14px;
+	text-anchor: middle;
+}
+.alarm,
+.timerHand,
+.weatherhand,
+.weatherhandone,
+.weatherhandtwo,
+.zone,
+.numbers text,
+.compassDial text,
+.compassSubdial text,
+.calendar text,
+.timerDial text,
+.timerSubdial text,
+.activitydial text,
+.weatherdial text {
+	opacity: 0;
+}
+
+.calendar {
+	fill: #fff;
+	font-size: 12px;
+}
+
+.calendar text:nth-child() {
+	text-anchor: start; }
+.calendar text:nth-child(-n+6) {
+	text-anchor: end; }
+.calendar text:first-child,
+.calendar text:nth-child(7) {
+	text-anchor: middle; }
+
+.activitydial, .weatherdial {
+	fill: #fff;
+	font-size: 16px;
+	text-anchor: middle;
+}
+
+.weatherdial {
+	font-size: 14px;
+}
+
+.calendarlabel,
+.calendarsetlabel,
+.alarmlabel,
+.compasslabel,
+.savedcompasslabel,
+.activitylabel,
+.weatherlabel {
+	opacity: 0;
+	font-family: 'Metric-Light', sans-serif;
+	fill: #fff;
+	font-size: 16px;
+	text-anchor: middle;
+}
+
+.highlabel,
+.lowlabel {
+	opacity: 0;
+	font-family: 'Metric-Light', sans-serif;
+	fill: #fff;
+	font-size: 10px;
+}
+
+.highlabel.flipped,
+.lowlabel.flipped,
+.nowlabel.flipped {
+	text-anchor: end;
+}
+
+.nowlabel {
+	opacity: 0;
+	font-family: 'Metric-Regular', sans-serif;
+	fill: #fff;
+	font-size: 14px;
+}
+
+.nextlabelone,
+.nextlabeltwo {
+	opacity: 0;
+	font-family: 'Metric-Light', sans-serif;
+	fill: #fff;
+	font-size: 10px;
+}
+
+.nextlabelone.flipped,
+.nextlabeltwo.flipped,
+.nextlabel.flipped {
+	text-anchor: end;
+}
+
+.nextlabel {
+	opacity: 0;
+	font-family: 'Metric-Regular', sans-serif;
+	fill: #fff;
+	font-size: 14px;
+}
+
+.calendarsetlabel, .alarmlabel {
+	font-family: 'Metric-Regular', sans-serif;
+}
+
+.activitylabel,
+.alarmlabel {
+	font-size: 24px;
+}
+
+.compassDial,
+.savedcompasslabel,
+.weatherlabel {
+	font-size: 18px;
+}
+
+.compasslabel {
+	font-size: 26px;
+}
+
+.timerDial {
+	fill: #fff;
+	font-size: 16px;
+	text-anchor: middle;
+}
+
+.timerSubdial {
+	fill: #fff;
+	font-size: 9px;
+	text-anchor: middle;
+}
+
+.compassSubdial {
+	fill: #fff;
+	font-size: 8px;
+	text-anchor: middle;
+}
+
+.minute,
+.hour {
+	fill: #fff;
+	stroke: #eee;
+	stroke-width: 1.75;
+}
+
+.innershadow {
+	stroke: #ccc;
+	stroke-width: 1.75;
+}
+
+.cap, .black {
+	fill: #36332d;
+	stroke: #36332d;
+	stroke-width: 2;
+}
+
+.alarm,
+.timerHand,
+.compassHand,
+.weatherhand,
+.weatherhandone,
+.weatherhandtwo,
+.weathershadows {
+	fill: #fff;
+}
+
+.zone {
+	fill: transparent;
+	stroke: #fff;
+	stroke-width: 1.75;
+}
+
+.shadow {
+	fill: #000;
+	stroke: #000;
+	opacity: .2;
+}
+
+.lines {
+	stroke: #fff;
+}
+
+.linemasks {
+	fill: #000;
+}
+
+.linelabels {
+	opacity: 0;
+	fill: #fff;
+	text-anchor: middle;
+}
+
+.maplines, .maplabels {
+	opacity: 0;
+	fill: #fff;
+}
+
+.reflection {
+	stroke-width: 1;
+}
+
+.pattern {
+	fill: #fff;
+}
+
+.patternfill {
+	fill: #000;
+}
+
+.h1,
+.h2,
+.buttonlabel,
+.interface,
+.hands,
+.smallTicks,
+.largeTicks,
+.reflection {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	pointer-events: none;
+}
+
+@font-face {
+	font-family: 'Metric-Regular';
+	src: url('../fonts/Metric-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/Metric-Regular.otf') format('opentype'), url('../fonts/Metric-Regular.woff') format('woff'), url('../fonts/Metric-Regular.ttf') format('truetype'), url('../fonts/Metric-Regular.svg#Metric-Regular') format('svg');
+	font-weight: normal;
+	font-style: normal; }
+@font-face {
+	font-family: 'Metric-Light';
+	src: url('../fonts/Metric-Light.eot?#iefix') format('embedded-opentype'),  url('../fonts/Metric-Light.otf') format('opentype'), url('../fonts/Metric-Light.woff') format('woff'), url('../fonts/Metric-Light.ttf') format('truetype'), url('../fonts/Metric-Light.svg#Metric-Light') format('svg');
+	font-weight: normal;
+	font-style: normal; }
+@font-face {
+	font-family: 'Metric-RegularItalic';
+	src: url('../fonts/Metric-RegularItalic.eot?#iefix') format('embedded-opentype'), url('../fonts/Metric-RegularItalic.otf') format('opentype'), url('../fonts/Metric-RegularItalic.woff') format('woff'), url('../fonts/Metric-RegularItalic.ttf')  format('truetype'), url('../fonts/Metric-RegularItalic.svg#Metric-RegularItalic') format('svg');
+	font-weight: normal;
+	font-style: normal; }
