@@ -4,10 +4,16 @@
   <meta charset="utf-8" />
 
   <title>Cardinal Prototypes</title>
-  <meta name="description" content="" />
-  <meta name="keywords" content="" />
+  <meta name="apple-mobile-web-app-title" content="Cardinal Home">
+  <meta name="description" content="Prototyping playground for Cardinal project" />
+  <meta name="keywords" content="canvas, html5, watch, prototype, web, svg, interaction, design" />
 
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" /> 
+  <meta name="apple-touch-fullscreen" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link rel="apple-touch-icon" href="touch.png" />
   <link rel="shortcut icon" href="favicon.ico" />
   <link rel="stylesheet" href="index.css">
 
@@ -30,9 +36,21 @@
   </a></li>
   <li><a href="/v3/">
     <h2>Version 3</h2>
-    <h3>Final Aesthetic Prototype</h3>
+    <h3>Aesthetic Prototype</h3>
   </a></li>
 </ul>
 
+<script type="text/javascript">
+  var a=document.getElementsByTagName("a");
+  for(var i=0;i<a.length;i++)
+  {
+      a[i].onclick=function(e)
+      {
+          e.preventDefault();
+          window.location=this.getAttribute("href");
+          return false
+      }
+  }
+</script>
 </body>
 </html>
