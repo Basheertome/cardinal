@@ -3,8 +3,8 @@ $(document).ready(function(){
 	watch = {
 		canvas: Snap('.watch'),
 		mode: 0,
-		width: 209,
-		bezel: 30,
+		width: 212,
+		bezel: 31,
 		x: 360 / 2,
 		y: 600 / 2,
 	};
@@ -21,9 +21,9 @@ function setup(watch) {
 	$('.watch')[0].setAttribute('viewBox', '0 0 ' + (watch.x*2) + ' ' + (watch.y*2));
 
 	watch.buttons = {
-		top: newButton(watch, 'top', -25.25, 4, 42, 1),
-		middle: newButton(watch, 'middle', -.25, 4, 42, 1),
-		bottom: newButton(watch, 'bottom', 24.85, 4, 42, 1),
+		top: newButton(watch, 'top', -25.25, 4.5, 42, 1),
+		middle: newButton(watch, 'middle', -.25, 4.5, 42, 1),
+		bottom: newButton(watch, 'bottom', 24.85, 4.5, 42, 1),
 		mask: watch.canvas.circle(watch.x, watch.y, (watch.width/2)+(2*watch.bezel*0.4375) + 3 + 25).attr({'class': 'buttonmask'})
 	};
 	watch.buttons.group = watch.canvas.group(
