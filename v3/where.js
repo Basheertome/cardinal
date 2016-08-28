@@ -49,8 +49,9 @@ where = {
 
 			watch.heading = 0;
 			if (window.DeviceOrientationEvent) {
+				deviceorientation = 1;
 				window.addEventListener('deviceorientation', function(e) {
-					if (typeof e.webkitCompassHeading != 'undefined') {
+					if ((typeof e.webkitCompassHeading != 'undefined') && (deviceorientation == 1)) {
 						watch.heading = e.webkitCompassHeading;
 					}
 				});
@@ -68,7 +69,7 @@ where = {
 
 		end: function(watch, callback) {
 			if (window.DeviceOrientationEvent) {
-				window.removeEventListener('deviceorientation');
+				deviceorientation = 0;
 				clearInterval(compassUpdate);
 			}
 			$('.maplines, .maplabels').animate({'opacity': '0'}, 250).promise().done(function() {
@@ -136,7 +137,7 @@ where = {
 		rotate: function(watch, event) {
 			if (event.type == 'rotatestart') {
 				if (window.DeviceOrientationEvent) {
-					window.removeEventListener('deviceorientation');
+					deviceorientation = 0;
 					clearInterval(compassUpdate);
 				}
 				if (typeof watch.rotation == 'undefined') {
@@ -347,8 +348,9 @@ where = {
 			watch.heading = 150;
 
 			if (window.DeviceOrientationEvent) {
+				deviceorientation = 1;
 				window.addEventListener('deviceorientation', function(e) {
-					if (typeof e.webkitCompassHeading != 'undefined') {
+					if ((typeof e.webkitCompassHeading != 'undefined') && (deviceorientation == 1)) {
 						watch.heading = e.webkitCompassHeading;
 						if (watch.rotation > 0) {
 							watch.compassLabel.attr('text', Math.round(360 - watch.heading - watch.rotation) + 'º');
@@ -412,7 +414,7 @@ where = {
 
 		end: function(watch, callback) {
 			if (window.DeviceOrientationEvent) {
-				window.removeEventListener('deviceorientation');
+				deviceorientation = 0;
 				clearInterval(compassUpdate);
 			}
 			if (typeof watch.rotation != 'undefined') {
