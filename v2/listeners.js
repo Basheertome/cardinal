@@ -34,7 +34,6 @@ function touchListeners(watch) {
 
 		var tap = new Hammer($('.screen')[0]);
 		var rotate = [
-			new Hammer($('.frame')[0]),
 			new Hammer($('.strap')[0]),
 			new Hammer($('.ring')[0]),
 			new Hammer($('.ring')[1])

@@ -31,9 +31,6 @@ function setup(watch) {
 		watch.buttons.bottom
 	).attr({'class': 'buttons'});
 
-	watch.frame = newFrame(watch).
-		attr({'class': 'frame'});
-
 	watch.strap = newStrap(watch, 125, 600).attr({
 		stroke: 'l(.5, 0, .5, 1)#fff:10-#e6e7e8:30-#e6e7e8:70-#fff:90',
 		'class': 'strap'
@@ -97,7 +94,6 @@ function setup(watch) {
 
 	watch.base = watch.canvas.group(
 		watch.buttons.group,
-		watch.frame,
 		watch.strap,
 		watch.h1,
 		watch.h2,
