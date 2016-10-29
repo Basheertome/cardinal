@@ -92,7 +92,7 @@ body {
 
 .smallTicks,
 .largeTicks {
-	fill: #e6e7e8;
+	fill: #00f;
 }
 
 .pie,
@@ -326,8 +326,6 @@ body {
 	pointer-events: none;
 }
 
-.smallTicks,
-.largeTicks,
 .shadow {
 	opacity: 0 !important;
 }
