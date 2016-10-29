@@ -24,6 +24,7 @@ body {
 	position: absolute;
 	width: 100%;
 	height: 100%;
+	transform: scale(2.6);
 	-webkit-transition: .15s linear opacity;
 	-moz-transition: .15s linear opacity;
 	transition: .15s linear opacity;
@@ -92,7 +93,7 @@ body {
 
 .smallTicks,
 .largeTicks {
-	fill: #00f;
+	fill: #000026;
 }
 
 .pie,
