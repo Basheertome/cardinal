@@ -42,7 +42,6 @@ function touchListeners(watch) {
 		singleTap.requireFailure(doubleTap);
 
 		tap.on('tap', function(event) {
-			DeviceOrientationEvent.requestPermission();
 		    switch (watch.mode) {
 		    	case 1:
 		    		when.tap(watch, event);
