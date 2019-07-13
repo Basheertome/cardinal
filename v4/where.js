@@ -13,7 +13,6 @@ where = {
 			$(this).fadeIn(250);
 		});
 		where[where.modes[where.mode]].start(watch);
-		DeviceOrientationEvent.requestPermission();
 	},
 
 	end: function(watch, callback) {
