@@ -36,6 +36,7 @@ body {
 
 .button {
 	fill: #000;
+	opacity: 0.2;
 }
 
 .h1,
@@ -45,23 +46,29 @@ body {
 }
 
 .h1 {
-	fill: #555;
+	fill: #666;
 	font-size: 24px;
 }
 
 .h2 {
-	fill: #888;
+	fill: #444;
 	font-size: 16px;
 }
 
 .h3 {
-	fill: #999;
+	fill: #444;
 	font-size: 14px;
 	font-family: 'Metric-RegularItalic', sans-serif;
 }
 
+.h4 {
+	fill: #fff;
+	font-size: 18px;
+	font-weight: bold;
+}
+
 .buttonlabel {
-	opacity: .25;
+	opacity: 0 !important;
 	fill: #999;
 	font-size: 12px;
 	transition: fill .25s linear;
@@ -84,13 +91,13 @@ body {
 }
 
 .screen {
-	stroke: #fff;
+	stroke: #333;
 	transition: fill .15s linear;
 }
 
 .smallTicks,
 .largeTicks {
-	fill: #e6e7e8;
+	fill: #444;
 }
 
 .pie,
@@ -98,7 +105,7 @@ body {
 .cumulativepierim {
 	fill: transparent;
 	stroke: #00AEEF;
-	opacity: .25;
+	opacity: .5;
 	transition: stroke-dasharray .5s linear, stroke-dashoffset .5s linear;
 }
 
@@ -277,7 +284,7 @@ body {
 }
 
 .zone {
-	fill: #fff;
+	fill: #000;
 	stroke: #00AEEF;
 	stroke-width: 1.75;
 }
@@ -295,7 +302,7 @@ body {
 }
 
 .linemasks {
-	fill: #fff;
+	fill: #000;
 }
 
 .linelabels {
@@ -312,6 +319,7 @@ body {
 .h1,
 .h2,
 .h3,
+.h4,
 .buttonlabel,
 .interface,
 .hands,
@@ -337,4 +345,9 @@ body {
 	font-family: 'Metric-RegularItalic';
 	src: url('../fonts/Metric-RegularItalic.eot?#iefix') format('embedded-opentype'), url('../fonts/Metric-RegularItalic.otf') format('opentype'), url('../fonts/Metric-RegularItalic.woff') format('woff'), url('../fonts/Metric-RegularItalic.ttf')  format('truetype'), url('../fonts/Metric-RegularItalic.svg#Metric-RegularItalic') format('svg');
 	font-weight: normal;
+	font-style: normal; }
+@font-face {
+	font-family: 'Metric-Medium';
+	src: url('../fonts/Metric-Medium.eot?#iefix') format('embedded-opentype'), url('../fonts/Metric-Medium.otf') format('opentype'), url('../fonts/Metric-Medium.woff') format('woff'), url('../fonts/Metric-Medium.ttf')  format('truetype'), url('../fonts/Metric-Medium.svg#Metric-Medium') format('svg');
+	font-weight: bold;
 	font-style: normal; }

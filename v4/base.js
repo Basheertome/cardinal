@@ -9,7 +9,7 @@ function newStrap(watch, width, height) {
 function newButton(watch, id, angle, width, height, radius) {
 	var button = watch.canvas.group(watch.canvas.rect(watch.x+(watch.width/2),
 							 	   watch.y-(height/2),
-								   (watch.bezel+width)*2,
+								   (watch.bezel+width)*2+100,
 								   height,
 								   radius).attr({'class': 'padding'}));
 	button.add(watch.canvas.rect(watch.x+(watch.width/2),

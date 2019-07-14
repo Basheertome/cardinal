@@ -22,7 +22,7 @@ what = {
 
 	activity: {
 		start: function(watch) {
-			setInstructions(watch, '● to view other past', 'activities today', '');
+			setInstructions(watch, '● to view other past', 'activities today', '', '', true);
 			updateWhatDots(watch);
 			watch.activityDial = newCalendarDial(watch, 28, 5.5, what.activity.units[what.activity.modesettings[what.activity.mode][2]])
 				.attr({'class': 'activitydial'});
@@ -136,7 +136,7 @@ what = {
 
 	cumulative: {
 		start: function(watch) {
-			setInstructions(watch, '', '', '');
+			setInstructions(watch, '', '', '', '', true);
 			updateWhatDots(watch);
 			watch.activityDial = newCalendarDial(watch, 28, 5.5, ['0', '6', '12', '18'])
 				.attr({'class': 'activitydial'});

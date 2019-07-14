@@ -23,13 +23,11 @@ function setup(watch) {
 
 	watch.buttons = {
 		top: newButton(watch, 'top', -60, -10, 45, 5),
-		middle: newButton(watch, 'middle', 0, -10, 45, 5),
-		bottom: newButton(watch, 'bottom', 60, -10, 45, 5)
+		middle: newButton(watch, 'middle', 50, -10, 70, 5),
 	};
 	watch.buttons.group = watch.canvas.group(
 		watch.buttons.top,
-		watch.buttons.middle,
-		watch.buttons.bottom
+		watch.buttons.middle
 	).attr({'class': 'buttons'});
 
 	watch.strap = newStrap(watch, 125, 600).attr({
@@ -49,6 +47,8 @@ function setup(watch) {
 		.attr({'class': 'h3'});
 	watch.h3d = watch.canvas.text(watch.x, watch.y + (watch.width/2) + (watch.bezel*2.15) + 54, '')
 		.attr({'class': 'h3'});
+	watch.h4 = watch.canvas.text(watch.x + (watch.width/2) - 50, watch.y - (watch.height/2) + 20, '')
+		.attr({'class': 'h4'});
 
 	watch.buttonlabel1 = [
 		watch.canvas.text(watch.x + watch.width*.66, watch.y + 3, '●')
@@ -114,7 +114,8 @@ function setup(watch) {
 		watch.buttonlabel3[3],
 		watch.dial,
 		watch.smallTicks,
-		watch.largeTicks
+		watch.largeTicks,
+		watch.h4
 	).attr({'class': 'base'});
 
 	watch.interface = watch.canvas.group().attr({'class': 'interface'});
@@ -182,12 +183,18 @@ function setShadow(watch, hand, angle, speed) {
 	watch[hand][0].animate({transform: 't' + shadowy + ',' + -shadowx}, speed, mina.easeinout);
 }
 
-function setInstructions(watch, line1, line2, line3, line4) {
-	$('.h3').fadeOut(250, function() {
+function setInstructions(watch, line1, line2, line3, line4, time) {
+	$('.h3, .h4').fadeOut(250, function() {
 		$(watch.h3a.node).text(line1);
 		$(watch.h3b.node).text(line2);
 		$(watch.h3c.node).text(line3);
 		$(watch.h3d.node).text(line4);
-		$('.h3').fadeIn(250);
+		if (time) {
+			var date = new Date();
+			$(watch.h4.node).text(date.getHours() + ":" + date.getMinutes());
+		} else {
+			$(watch.h4.node).text('');
+		};
+		$('.h3, .h4').fadeIn(250);
 	});
 }

@@ -21,7 +21,7 @@ where = {
 
 	map: {
 		start: function(watch) {
-			setInstructions(watch, '● to demo rural map', '●● to toggle zoom', '↺ to manually set', 'map rotation');
+			setInstructions(watch, '● to demo rural map', '●● to toggle zoom', '↺ to manually set', 'map rotation', true);
 			updateWhereDots(watch);
 			watch.maplines = watch.canvas.path(where.map.mapdata[where.map.mapdata.mode].lines)
 				.transform('t' + (watch.x - 107.5) + ',' + (watch.y - 107.5))
@@ -165,7 +165,7 @@ where = {
 
 	transit: {
 		start: function(watch) {
-			setInstructions(watch, '', '', '', '');
+			setInstructions(watch, '', '', '', '', true);
 			updateWhereDots(watch);
 			setTime(watch, 270, 270, 500);
 			watch.linemasks = [
@@ -374,7 +374,7 @@ where = {
 
 	compass: {
 		start: function(watch) {
-			setInstructions(watch, '● to show diff of two', 'different headings', '●● to reset to single', '↺ to calibrate north');
+			setInstructions(watch, '● to show diff of two', 'different headings', '●● to reset to single', '↺ to calibrate north', true);
 			updateWhereDots(watch);
 			watch.heading = 150;
 
@@ -527,7 +527,7 @@ where = {
 
 	weather: {
 		start: function(watch) {
-			setInstructions(watch, '↺ to view by the hour', '● to show tomorrow', '●+ to show forecast', '');
+			setInstructions(watch, '↺ to view by the hour', '● to show tomorrow', '●+ to show forecast', '', true);
 			updateWhereDots(watch);
 			if (where.weather.mode < 2) {
 				watch.weatherdial = newCalendarDial(watch, 28, 4.5, where.weather.modesettings[where.weather.mode][6])

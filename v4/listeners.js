@@ -17,20 +17,33 @@ function buttonListeners(watch) {
 			.toggleClass('touched');
 	});
 
-	$('#top').on('click', function() {
-		when.button(watch);
+	$('#top').on('click', function(e) {
+		return;
 	});
+
 	$('#middle').on('click', function() {
-		what.button(watch);
+		switch (watch.mode) {
+			case 1:
+				when.button(watch);
+				break;
+			case 2:
+				what.button(watch);
+				break;
+			case 3:
+				where.button(watch);
+				break;
+		}
 	});
-	$('#bottom').on('click', function() {
-		where.button(watch);
-	});
+
 }
 
 function touchListeners(watch) {
 	if ('ontouchstart' in document.documentElement) {
 		$('html').addClass('touch');
+		$('html').bind('click', function(e) {
+			DeviceOrientationEvent.requestPermission();
+			$('html').unbind('click');
+		});
 
 		var tap = new Hammer($('.screen')[0]);
 
@@ -84,6 +97,41 @@ function touchListeners(watch) {
 		    		break;
 		    }
 		});
+
+		tap.on('swipeleft', function(event) {
+			var new_mode = watch.mode - 1;
+			if (new_mode<1) {new_mode = 3};
+
+			switch (new_mode) {
+				case 1:
+					when.button(watch);
+					break;
+				case 2:
+					what.button(watch);
+					break;
+				case 3:
+					where.button(watch);
+					break;
+			}
+		});
+
+		tap.on('swiperight', function(event) {
+			var new_mode = watch.mode + 1;
+			if (new_mode>3) {new_mode = 1};
+
+			switch (new_mode) {
+				case 1:
+					when.button(watch);
+					break;
+				case 2:
+					what.button(watch);
+					break;
+				case 3:
+					where.button(watch);
+					break;
+			}
+		});
+
 	} else {
 		clicks = 0, timer = null;
 	    $('.screen').on('click', function(e){
